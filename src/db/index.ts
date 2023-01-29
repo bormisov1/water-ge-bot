@@ -44,7 +44,8 @@ async function getSubscriptionsUserIds(event: Event): Promise<number[]> {
     await AppDataSource.manager
       .createQueryBuilder(Subscription, 'subscription')
       .select('subscription.userId')
-      .where(":addresses LIKE '%' || address || '%'", {
+      .where('is_active=true')
+      .andWhere(":addresses LIKE '%' || address || '%'", {
         addresses,
       })
       .getMany()
