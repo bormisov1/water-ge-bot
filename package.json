@@ -1,0 +1,40 @@
+{
+  "version": "0.0.1",
+  "scripts": {
+    "serve": "export $(cat .env | xargs) && ts-node-dev --exit-child src/index.ts",
+    "scrap": "node scripts/index.js"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.4",
+    "node-fetch": "^2.6.7",
+    "node-html-parser": "^6.1.4",
+    "pg": "^8.7.3",
+    "reflect-metadata": "^0.1.13",
+    "telegraf": "^4.11.2",
+    "typeorm": "^0.3.7"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/node": "^18.7.3",
+    "@types/node-fetch": "^2.6.2",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.8.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "testyts": "^1.5.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.5.0"
+  },
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "license": "MIT"
+}
