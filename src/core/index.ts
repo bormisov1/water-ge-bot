@@ -73,7 +73,6 @@ const handleAddress = async (
     console.log(e);
     return [];
   });
-  console.log({ addresses });
   if (!addresses.length)
     return bot.sendMessageToUser(
       userId,
