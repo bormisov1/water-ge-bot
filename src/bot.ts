@@ -35,6 +35,7 @@ export async function BotService(): Promise<Bot> {
     commandHandlers.help(ctx.chat.id);
   });
   bot.command('off', (ctx) => commandHandlers.off(ctx.chat.id));
+  bot.command('renew', (ctx) => commandHandlers.renew(ctx.chat.id));
   bot.command('address', (ctx) => {
     const msg = ctx.message.text;
     commandHandlers.address(
