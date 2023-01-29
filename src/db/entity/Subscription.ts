@@ -13,7 +13,7 @@ export class Subscription {
   @Column({ name: 'user_id', type: 'integer', unique: true })
   userId!: number;
 
-  @Column({ name: 'address', type: 'text', nullable: true })
+  @Column({ name: 'address', type: 'text', default: '' })
   address!: string;
 
   @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
