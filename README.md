@@ -1,4 +1,10 @@
 # Water Georgian Bot
+### Launch
+##### Before start
+* Do `npm run scrap` to scrap addresses and write to `addresses.txt` file.
+* Create `.env` with `BOT_TOKEN=<your-bot-token>`.
+##### Start
+`docker-compose up`
 ### Features
 * Scrap events posted on pages of [this website](http://water.gov.ge/page/full/107/); it's assumed that each event has start&end dates, and list of addresses in format "\[city] \[street] ...\[...]".
 * Allow bot user set his personal address string. The address string will be used to match events to notify user about. Events that have user's address as a substring in one of their addresses will be notified about to the user.
