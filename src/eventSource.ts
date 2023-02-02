@@ -20,13 +20,15 @@ export async function EventSourceService(): Promise<EventSource> {
 
 async function pullRecentRepeatedly(): Promise<void> {
   const exit = false;
+  let firstPull = true;
   while (!exit) {
     try {
       const events = await pullPageEvents(0);
       const freshEvents = events.filter(
         (le) => !recentEvents.find((re) => !isEventsEqual(re, le)),
       );
-      await Promise.all(freshEvents.map(eventHandler));
+      if (!firstPull) await Promise.all(freshEvents.map(eventHandler));
+      else firstPull = false;
       if (freshEvents.length !== 0) {
         recentEvents = freshEvents.concat(recentEvents);
       }
