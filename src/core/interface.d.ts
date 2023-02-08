@@ -59,9 +59,9 @@ type BotCommandHandler =
 type EventHandler = (event: Event) => Promise<void>;
 
 interface Bot {
-  setHandler(
-    command: keyof BotCommandHandlers,
-    handler: BotCommandHandler,
+  setHandler<T extends keyof BotCommandHandlers>(
+    command: T,
+    handler: BotCommandHandlers[T],
   ): void;
   sendMessageToUser(userId: number, message: string): Promise<void>;
 }

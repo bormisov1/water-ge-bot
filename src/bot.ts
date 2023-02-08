@@ -1,6 +1,6 @@
 import { Telegraf } from 'telegraf';
 
-import { Bot, BotCommandHandler, BotCommandHandlers } from './core/interface';
+import { Bot, BotCommandHandlers } from './core/interface';
 
 const bot = new Telegraf(process.env.BOT_TOKEN || '');
 process.once('SIGINT', () => bot.stop('SIGINT'));
@@ -51,9 +51,9 @@ export async function BotService(): Promise<Bot> {
   };
 }
 
-function setHandler(
-  command: keyof BotCommandHandlers,
-  handler: BotCommandHandler,
+function setHandler<T extends keyof BotCommandHandlers>(
+  command: T,
+  handler: BotCommandHandlers[T],
 ): void {
   commandHandlers[command] = handler;
 }
